@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Match results</title>
 </head>
 <body>
@@ -16,9 +16,9 @@
                 <span><%=teams[i].date %></span>
                 <span><%=teams[i].month %></span>
                 <span><%=teams[i].homeTeam %></span>
-                <span><%=teams[i].score %></span>
+                <span><%=teams[i].homeScore %></span> - <span><%=teams[i].awayScore %></span>
                 <span><%=teams[i].awayTeam %></span>
-                <span class="fa-solid fa-circle-xmark"></span>
+                <span class="fa-solid fa-xmark"></span>
             </li>
             <span class="scorer"><%=teams[i].scorer %></span>
         <% } %>
@@ -26,25 +26,45 @@
 
     <h2>Add result</h2>
     <form action="/addResult" method="post">
-        <input type="text" placeholder="Date" name="date" id="date">
-            <select name="month" id="month">
-                <option value="sep">Sep</option>
-                <option value="oct">Oct</option>
-                <option value="nov">Nov</option>
-                <option value="dec">Dec</option>
-                <option value="jan">Jan</option>
-                <option value="feb">Feb</option>
-                <option value="mar">Mar</option>
-                <option value="apr">Apr</option>
-                <option value="may">May</option>
-            </select>
+
+        <label for="date">Date</label>
+        <input type="date" placeholder="" name="date" id="date"  min="2022-09-04"><br>
+
+        <label for="homeTeam">Home</label>
         <input type="text" placeholder="Home team" name="homeTeam" id="home-team">
-        <input type="text" placeholder="Score" name="score" id="score">
+            <select name="homeScore" id="homeScore">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select><br>
+
+        <label for="awayTeam">Away</label>
         <input type="text" placeholder="Away Team" name="awayTeam" id="away-team">
-        <input type="text" placeholder="Scorers" name="scorer" id="scorer">
+            <select name="awayScore" id="awayScore">
+                <option value='0'>0</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select><br>
+
+        <label for="scorer">Scorers</label>
+        <input type="text" placeholder="Scorers" name="scorer" id="scorer"><br>
         <input type="submit">
     </form>
 
-    <script src="../public/main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
