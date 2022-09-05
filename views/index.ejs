@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="../public/style.css">
+    <title>Match results</title>
+</head>
+<body>
+    <h1>Match results</h1>
+    <ul class="match-stats">
+        <% for(let i = 0; i < teams.length; i++) { %>
+            <li class="team">
+                <span><%=teams[i].date %></span>
+                <span><%=teams[i].month %></span>
+                <span><%=teams[i].homeTeam %></span>
+                <span><%=teams[i].score %></span>
+                <span><%=teams[i].awayTeam %></span>
+                <span class="fa-solid fa-circle-xmark"></span>
+            </li>
+            <span class="scorer"><%=teams[i].scorer %></span>
+        <% } %>
+    </ul>
+
+    <h2>Add result</h2>
+    <form action="/addResult" method="post">
+        <input type="text" placeholder="Date" name="date" id="date">
+            <select name="month" id="month">
+                <option value="sep">Sep</option>
+                <option value="oct">Oct</option>
+                <option value="nov">Nov</option>
+                <option value="dec">Dec</option>
+                <option value="jan">Jan</option>
+                <option value="feb">Feb</option>
+                <option value="mar">Mar</option>
+                <option value="apr">Apr</option>
+                <option value="may">May</option>
+            </select>
+        <input type="text" placeholder="Home team" name="homeTeam" id="home-team">
+        <input type="text" placeholder="Score" name="score" id="score">
+        <input type="text" placeholder="Away Team" name="awayTeam" id="away-team">
+        <input type="text" placeholder="Scorers" name="scorer" id="scorer">
+        <input type="submit">
+    </form>
+
+    <script src="../public/main.js"></script>
+</body>
+</html>
