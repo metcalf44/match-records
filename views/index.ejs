@@ -12,15 +12,27 @@
     <h1>Match results</h1>
     <ul class="match-stats">
         <% for(let i = 0; i < teams.length; i++) { %>
-            <li class="team">
-                <span><%=teams[i].date %></span>
-                <span><%=teams[i].month %></span>
-                <span><%=teams[i].homeTeam %></span>
-                <span><%=teams[i].homeScore %></span> - <span><%=teams[i].awayScore %></span>
-                <span><%=teams[i].awayTeam %></span>
-                <span class="fa-solid fa-xmark"></span>
-            </li>
-            <span class="scorer"><%=teams[i].scorer %></span>
+            <span class="date"><%=teams[i].date %></span>
+
+            <% if(teams[i].homeTeam === "Wymondly park"){ %>
+                <li class="team homeColor"><%=teams[i].homeTeam %>
+                    <span class="home"><%=teams[i].homeTeam %></span>
+                    <span class="home-score"><%=teams[i].homeScore %></span> - 
+                    <span class="away-score"><%=teams[i].awayScore %></span>
+                    <span class="away"><%=teams[i].awayTeam %></span>
+                    <span class="fa-solid fa-xmark"></span><br>
+                    <p class="scorer"><%=teams[i].scorer %></p>
+                </li>
+            <% } else { %>
+                <li class="team awayColor"><%=teams[i].homeTeam %>
+                    <span class="home"><%=teams[i].homeTeam %></span>
+                    <span class="home-score"><%=teams[i].homeScore %></span> - 
+                    <span class="away-score"><%=teams[i].awayScore %></span>
+                    <span class="away"><%=teams[i].awayTeam %></span>
+                    <span class="fa-solid fa-xmark"></span><br>
+                    <p class="scorer"><%=teams[i].scorer %></p>
+                </li>
+            <% } %>
         <% } %>
     </ul>
 
@@ -68,3 +80,4 @@
     <script src="./main.js"></script>
 </body>
 </html>
+
