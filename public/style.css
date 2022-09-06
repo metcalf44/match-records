@@ -26,11 +26,15 @@ h1 {
     font-weight: 400;
     letter-spacing: .5px;
     text-align: center;
+    box-shadow: 10px 11px 18px -2px rgba(0,0,0,0.57);
+    -webkit-box-shadow: 10px 11px 18px -2px rgba(0,0,0,0.57);
+    -moz-box-shadow: 10px 11px 18px -2px rgba(0,0,0,0.57);
 }
 
 .date {
     font-size: .75rem;
     text-align: left;
+    font-family: 'poppins', sans-serif;
 }
 
 .date, .home, .away-score, .away {
