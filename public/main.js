@@ -17,14 +17,14 @@ Array.from(awayTeam).forEach((element) => {
 async function deleteResult() {
     const itemText = this.parentNode.childNodes[1].innerText
     try{
-        const response = await fetch('deleteResult', {
+        const res = await fetch('deleteGame', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'itemFromJS': itemText
             })
         })
-    const data = await response.json()
+    const data = await res.json()
     console.log(data)
     location.reload()
 

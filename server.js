@@ -1,8 +1,8 @@
-const { response, request } = require('express')
+
 const express = require('express')
 const { MongoClient } = require('mongodb')
 const app = express()
-const PORT = 3000
+const PORT = 4000
 require('dotenv').config()
 
 let db,
@@ -42,8 +42,8 @@ app.post('/addResult', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.delete('/deleteResult', (req, res) => {
-    db.collection('results').deleteOne({date: req.body.itemFromJS})
+app.delete('/deleteGame', (req, res) => {
+    db.collection('results').deleteOne({homeTeam: req.body.itemFromJS})
         .then(result => {
             console.log('result deleted')
             res.json('result deleted')
@@ -52,9 +52,9 @@ app.delete('/deleteResult', (req, res) => {
 })
 
 app.put('/change', (req, res) => {
-    db.collection('results').updateOne({awayTeam: req.body.itemFromJS}, {
+    db.collection('results').updateOne({homeTeam: req.body.itemFromJS}, {
         $set: {
-            test: false
+            homeScore: "10"
         }
     }, {
         sort: {_id: -1},
