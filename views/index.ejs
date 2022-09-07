@@ -16,19 +16,21 @@
 
             <% if(teams[i].homeTeam === "Wymondly park"){ %>
                 <li class="team homeColor">
-                    <span class="home"><%= teams[i].homeTeam %></span>
+                    <span class="home-team"><%= teams[i].homeTeam %></span>
                     <span class="home-score"><%= teams[i].homeScore %></span> - 
                     <span class="away-score"><%= teams[i].awayScore %></span>
-                    <span class="away"><%= teams[i].awayTeam %></span>
+                    <span class="away-team"><%= teams[i].awayTeam %></span>
+                    <span class="fa-regular fa-futbol"></span>
                     <span class="fa-solid fa-xmark"></span><br>
                     <p class="scorer"><%= teams[i].scorer %></p>
                 </li>
             <% } else { %>
                 <li class="team awayColor">
-                    <span class="home"><%= teams[i].homeTeam %></span>
+                    <span class="home-team"><%= teams[i].homeTeam %></span>
                     <span class="home-score"><%= teams[i].homeScore %></span> - 
                     <span class="away-score"><%= teams[i].awayScore %></span>
-                    <span class="away"><%= teams[i].awayTeam %></span>
+                    <span class="away-team"><%= teams[i].awayTeam %></span>
+                    <span class="fa-regular fa-futbol"></span>
                     <span class="fa-solid fa-xmark"></span><br>
                     <p class="scorer"><%= teams[i].scorer %></p>
                 </li>

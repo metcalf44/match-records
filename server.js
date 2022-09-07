@@ -21,12 +21,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.get('/', async (req, res) => {
-    const results = await db.collection('results').find().sort({ date: 1 }).toArray()
+    const results = await db.collection('results').find().toArray()
     const resultsScore = await db.collection('results').find().toArray()
     res.render('index.ejs', { teams: results })
 })
 
-app.post('/addResult', async (req, res) => {
+app.post('/addResult', (req, res) => {
     db.collection('results').insertOne({
         date: req.body.date, 
         homeTeam: req.body.homeTeam,
@@ -43,10 +43,26 @@ app.post('/addResult', async (req, res) => {
 })
 
 app.delete('/deleteResult', (req, res) => {
-    db.collection('results').deleteOne({gameId: req.body.resultFromJS})
+    db.collection('results').deleteOne({date: req.body.itemFromJS})
         .then(result => {
             console.log('result deleted')
             res.json('result deleted')
+        })
+        .catch(error => console.error(error))
+})
+
+app.put('/change', (req, res) => {
+    db.collection('results').updateOne({awayTeam: req.body.itemFromJS}, {
+        $set: {
+            test: false
+        }
+    }, {
+        sort: {_id: -1},
+        upsert: false
+    })
+        .then(result => {
+            console.log('changed score')
+            res.json('changed score')
         })
         .catch(error => console.error(error))
 })

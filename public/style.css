@@ -37,18 +37,16 @@ h1 {
     font-family: 'poppins', sans-serif;
 }
 
-.date, .home, .away-score, .away {
+.home-team, .away-score, .away-team, .fa-futbol {
     padding-right: .25em;
-}
-
-.away {
-    padding-right: 1em;
 }
 
 .scorer {
     text-align: left;
     margin: 0;
-    padding: .25em 0 0 5.5em;
+    padding: .25em 0 0 1.5em;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .homeColor {
@@ -57,5 +55,9 @@ h1 {
 
 .awayColor {
     background-color: rgb(140, 141, 141);
+}
+
+.fa-futbol {
+    font-size: .9rem;
 }
 
