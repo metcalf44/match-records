@@ -33,7 +33,7 @@ app.post('/addResult', (req, res) => {
         homeScore: req.body.homeScore,
         awayTeam: req.body.awayTeam,
         awayScore: req.body.awayScore,
-        scorer: req.body.scorer
+        scorer: req.body.scorer,
     })
     .then(result => {
         console.log('result added')
@@ -54,7 +54,7 @@ app.delete('/deleteGame', (req, res) => {
 app.put('/change', (req, res) => {
     db.collection('results').updateOne({homeTeam: req.body.itemFromJS}, {
         $set: {
-            homeScore: "10"
+            // homeScore: "10"
         }
     }, {
         sort: {_id: -1},

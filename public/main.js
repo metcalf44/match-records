@@ -1,14 +1,10 @@
 const deleteBtn = document.querySelectorAll(".fa-xmark")
-const score = document.querySelectorAll(".fa-futbol")
-const awayTeam = document.querySelectorAll(".away-team")
+const awayTeam = document.querySelectorAll(".team .away-team")
+
 
 Array.from(deleteBtn).forEach((element) => {
     element.addEventListener('click', deleteResult)
 })
-
-// Array.from(score).forEach((element) => {
-//     element.addEventListener('click', showScorer)
-// })
 
 Array.from(awayTeam).forEach((element) => {
     element.addEventListener('click', change)
@@ -32,6 +28,7 @@ async function deleteResult() {
         console.log(err)
     }
 }
+
 
 // item text refers to the text clicked on page
 // its then stored in the body as itemFromJS

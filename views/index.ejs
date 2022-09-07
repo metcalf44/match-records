@@ -21,7 +21,8 @@
                     <span class="away-score"><%= teams[i].awayScore %></span>
                     <span class="away-team"><%= teams[i].awayTeam %></span>
                     <span class="fa-regular fa-futbol"></span>
-                    <span class="fa-solid fa-xmark"></span><br>
+                    <span class="fa-solid fa-xmark"></span>
+                    <br>
                     <p class="scorer"><%= teams[i].scorer %></p>
                 </li>
             <% } else { %>
@@ -32,7 +33,7 @@
                     <span class="away-team"><%= teams[i].awayTeam %></span>
                     <span class="fa-regular fa-futbol"></span>
                     <span class="fa-solid fa-xmark"></span><br>
-                    <p class="scorer"><%= teams[i].scorer %></p>
+                    <p id="scorer" class="scorer"><%= teams[i].scorer %></p>
                 </li>
             <% } %>
         <% } %>
