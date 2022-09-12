@@ -8,9 +8,36 @@
     <title>Match records</title>
 </head>
 <body>
+    <ul class="match-stats">
+        <% for(let i = 0; i < results.length; i++) { %>
+            <span class="date"><%=result[i].date %></span>
+                <% if(result[i].homeTeam === "Wymondly park"){ %>
+                    <li class="team homeColor" data-id="<%=li._id%>">
+                        <span class="home-team"><%= result[i].homeTeam %></span>
+                        <span class="home-score"><%= result[i].homeScore %></span> - 
+                        <span class="away-score"><%= result[i].awayScore %></span>
+                        <span class="away-team"><%= result[i].awayTeam %></span>
+                        <span class="fa-regular fa-futbol"></span>
+                        <span class="fa-solid fa-xmark"></span>
+                        <br>
+                        <p class="scorer"><%= result[i].scorer %></p>
+                    </li>
+                <% } else { %>
+                    <li class="team awayColor">
+                        <span class="home-team"><%= result[i].homeTeam %></span>
+                        <span class="home-score"><%= result[i].homeScore %></span> - 
+                        <span class="away-score"><%= result[i].awayScore %></span>
+                        <span class="away-team"><%= result[i].awayTeam %></span>
+                        <span class="fa-regular fa-futbol"></span>
+                        <span class="fa-solid fa-xmark"></span><br>
+                        <p id="scorer" class="scorer"><%= results[i].scorer %></p>
+                    </li>
+                <% } %>
+        <% } %>
+    </ul>
     <h2>Add result</h2>
     <!-- action may need changing -->
-    <form action="/addResult" method="POST">
+    <form action="/createResult" method="POST">
 
         <label for="date">Date</label>
         <input type="date" placeholder="" name="date" id="date"  min="2022-09-04"><br>

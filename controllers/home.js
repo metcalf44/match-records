@@ -5,14 +5,7 @@ module.exports = {
         res.render('index.ejs')
     },
 
-    // getResults: async (req, res) => {
-    //     try{
-    //         const matchResults = await result.find()
-    //         res.render('index.ejs', {results: matchResults})
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
-    // },
+    
 
     // deleteResult: async (req, res) => {
     //     console.log(req.body.resultIdFromJSFile)
