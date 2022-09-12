@@ -23,7 +23,6 @@ const ResultEntrySchema = new mongoose.Schema({
     },
     scorer: {
         type: String,
-        required: false,
     }
 })
 

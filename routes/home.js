@@ -4,7 +4,6 @@ const homeController = require('../controllers/home')
 
 router.get('/', homeController.getIndex)
 
-// router.get('/', homeController.getResults)
 
 // router.delete('/deleteResult', homeController.deleteResult)
 
