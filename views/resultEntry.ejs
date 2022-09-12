@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Match records</title>
 </head>
 <body>
@@ -13,43 +14,23 @@
     <!-- action may need changing -->
     <form action="/createResult" method="POST">
 
-        <label for="date">Date</label>
-        <input type="date" placeholder="" name="date" id="date"  min="2022-09-04"><br>
+        <ul class="match-stats">
+            <% matches.forEach (el => { %>
+                <li class="<%= el.homeTeam === 'Wymondly park' ? 'homeColor' : 'awayColor' %>">
+                    <span class="home-team"><%= el.homeTeam %></span>
+                    <span class="home-score"><%= el.homeScore %></span> - 
+                    <span class="away-score"><%= el.awayScore %></span>
+                    <span class="away-team"><%= el.awayTeam %></span>
+                    <span class="fa-regular fa-futbol"></span>
+                    <span class="fa-solid fa-xmark"></span>
+                    <br>
+                    <p class="scorer"><%= el.scorer %></p>
+                </li>
+            <% }) %>
+    
+        </ul>
 
-        <label for="homeTeam">Home</label>
-        <input type="text" placeholder="Home team" name="homeTeam" id="home-team">
-            <select name="homeScore" id="homeScore">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select><br>
 
-        <label for="awayTeam">Away</label>
-        <input type="text" placeholder="Away Team" name="awayTeam" id="away-team">
-            <select name="awayScore" id="awayScore">
-                <option value='0'>0</option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-            </select><br>
-
-        <label for="scorer">Scorers</label>
-        <input type="text" placeholder="Scorers" name="scorer" id="scorer"><br>
-        <input type="submit">
-    </form>
 
     <script src="./main.js"></script>
 </body>

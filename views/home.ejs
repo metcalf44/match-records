@@ -13,7 +13,7 @@
     <a href="/resultEntry">Enter results</a>
 
     <ul class="match-stats">
-        <% results.forEach (el => { %>
+        <% matches.forEach (el => { %>
             <li class="team">
                 <span class="home-team"><%= el.homeTeam %></span>
             </li>
@@ -21,7 +21,6 @@
 
     </ul>
     
-
     <h2>Add result</h2>
     
     <form action="/createEntry" method="POST">

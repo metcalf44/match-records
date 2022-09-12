@@ -5,6 +5,14 @@ module.exports = {
         res.render('resultEntry.ejs')
     },
 
+    getResults: async (req, res) => {
+        try {
+            const matchResult = await Result.find()
+            res.render('resultEntry.ejs', {matches: matchResult})
+        } catch(err) {
+            console.log(err)
+        }
+    }
     
 
     // createResult: async (req, res) => {

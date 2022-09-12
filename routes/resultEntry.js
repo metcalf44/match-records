@@ -6,6 +6,8 @@ const resultEntryController = require('../controllers/resultEntry')
 
 // router.post('/createResult', resultEntryController.createResult)
 
+router.get('/', resultEntryController.getResults)
+
 
 
 module.exports = router

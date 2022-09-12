@@ -1,9 +1,9 @@
 const Result = require('../models/ResultsEntry')
 
 module.exports = {
-    getHome: (req, res) => {
-        res.render('home.ejs')
-    },
+    // getHome: (req, res) => {
+    //     res.render('home.ejs')
+    // },
 
     createEntry: async (req, res) => {
         try{
@@ -23,13 +23,13 @@ module.exports = {
     },
     
     getResults: async (req, res) => {
-        try{
-            const matchResults = await Result.find()
-            res.render('home.ejs', {results: matchResults})
+        try {
+            const matchResult = await Result.find()
+            res.render('home.ejs', {matches: matchResult})
         } catch(err) {
             console.log(err)
         }
-    },
+    }
 
     // deleteResult: async (req, res) => {
     //     console.log(req.body.resultIdFromJSFile)
