@@ -26,4 +26,5 @@ const ResultEntrySchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('ResultEntry', ResultEntrySchema)
+// ('database name', mongoose schema)
+module.exports = mongoose.model('results', ResultEntrySchema)
