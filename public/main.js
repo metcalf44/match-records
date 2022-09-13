@@ -2,8 +2,8 @@ const deleteBtn = document.querySelectorAll(".fa-xmark")
 const awayTeam = document.querySelectorAll(".team .away-team")
 
 
-Array.from(deleteBtn).forEach((element) => {
-    element.addEventListener('click', deleteResult)
+Array.from(deleteBtn).forEach((el) => {
+    el.addEventListener('click', deleteResult)
 })
 
 async function deleteResult() {
@@ -13,7 +13,7 @@ async function deleteResult() {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'resultIdFromJS': resultId
+                'resultIdFromJSFile': resultId
             })
         })
         const data = await res.json()
@@ -35,7 +35,7 @@ async function change() {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'itemFromJS': itemText
+                'itemFromJSFile': itemText
             })
         })
     const data = await res.json()
