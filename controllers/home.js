@@ -5,7 +5,6 @@ module.exports = {
         res.render('home.ejs')
     },
 
-<<<<<<< HEAD
     createResult: async (req, res) => {
         try{
             await Result.create({
@@ -22,8 +21,5 @@ module.exports = {
             console.log(err)
         }
     }
-=======
-    
->>>>>>> 9b4095831badf5617bfec6acb18450e49d94fa7f
 
 }
