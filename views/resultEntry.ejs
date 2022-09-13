@@ -16,7 +16,7 @@
 
         <ul class="match-stats">
             <% matches.forEach (el => { %>
-                <li class="<%= el.homeTeam === 'Wymondly park' ? 'homeColor' : 'awayColor' %>">
+                <li class="<%= el.homeTeam === 'Wymondly park' ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
                     <span class="home-team"><%= el.homeTeam %></span>
                     <span class="home-score"><%= el.homeScore %></span> - 
                     <span class="away-score"><%= el.awayScore %></span>
