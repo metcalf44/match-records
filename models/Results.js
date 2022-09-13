@@ -24,7 +24,6 @@ const ResultsSchema = new mongoose.Schema({
     },
     scorer: {
         type: String,
-        required: false,
     }
 })
 
