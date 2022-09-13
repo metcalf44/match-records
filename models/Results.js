@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
-const ResultEntrySchema = new mongoose.Schema({
+const ResultsSchema = new mongoose.Schema({
     date: {
         type: Date,
+        $setOnInsert: { dateAdded: new Date() },
         required: true,
     },
     homeTeam: {
@@ -27,4 +28,4 @@ const ResultEntrySchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('ResultEntry', ResultEntrySchema)
+module.exports = mongoose.model('Results', ResultsSchema)

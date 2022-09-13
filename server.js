@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
-const resultEntryRoutes = require('./routes/resultEntry')
+const resultsRoutes = require('./routes/results')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use('/', homeRoutes)
-app.use('/resultEntry', resultEntryRoutes)
+app.use('/results', resultsRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`The server is alive and running!`)

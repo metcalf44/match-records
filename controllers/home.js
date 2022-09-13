@@ -1,27 +1,25 @@
-// const Result = require('../models/ResultsEntry')
+const Result = require('../models/Results')
 
 module.exports = {
     getIndex: (req, res) => {
-        res.render('index.ejs')
+        res.render('home.ejs')
     },
 
-    // getResults: async (req, res) => {
-    //     try{
-    //         const matchResults = await result.find()
-    //         res.render('index.ejs', {results: matchResults})
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
-    // },
+    createResult: async (req, res) => {
+        try{
+            await Result.create({
+                date: req.body.date,
+                homeTeam: req.body.homeTeam,
+                homeScore: req.body.homeScore,
+                awayScore: req.body.awayScore,
+                awayTeam: req.body.awayTeam,
+                scorer: req.body.scorer,
+            })
+            console.log('Result has been added')
+            res.redirect('/')
+        } catch(err) {
+            console.log(err)
+        }
+    }
 
-    // deleteResult: async (req, res) => {
-    //     console.log(req.body.resultIdFromJSFile)
-    //     try {
-    //         await result.findOneAndDelete({_id:req.body.resultIdFromJSFile})
-    //         console.log('Deleted result')
-    //         res.json('Deleted result')
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // } 
 }

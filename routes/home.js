@@ -4,8 +4,7 @@ const homeController = require('../controllers/home')
 
 router.get('/', homeController.getIndex)
 
-// router.get('/', homeController.getResults)
+router.post('/createResult', homeController.createResult)
 
-// router.delete('/deleteResult', homeController.deleteResult)
 
 module.exports = router

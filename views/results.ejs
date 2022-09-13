@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Match records</title>
+</head>
+<body>
+    
+    <h1>Match results</h1>
+    
+    <ul class="match-stats">
+        <% matches.forEach (el => { %>
+            <span class="date"><%= el.date %></span>
+            <li class="team <%= el.homeTeam === 'Wymondly park' ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
+                <span class="home-team"><%= el.homeTeam %></span>
+                <span class="home-score"><%= el.homeScore %></span> - 
+                <span class="away-score"><%= el.awayScore %></span>
+                <span class="away-team"><%= el.awayTeam %></span>
+                <span class="fa-regular fa-futbol"></span>
+                <span class="fa-solid fa-xmark"></span>
+                <br>
+                <p class="scorer"><%= el.scorer %></p>
+            </li>
+        <% }) %>
+
+    </ul>
+   
+
+    <script src="./main.js"></script>
+</body>
+</html>

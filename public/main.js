@@ -6,24 +6,19 @@ Array.from(deleteBtn).forEach((element) => {
     element.addEventListener('click', deleteResult)
 })
 
-Array.from(awayTeam).forEach((element) => {
-    element.addEventListener('click', change)
-})
-
 async function deleteResult() {
-    const itemText = this.parentNode.childNodes[1].innerText
+    const resultId = this.parentNode.dataset.id
     try{
-        const res = await fetch('deleteGame', {
+        const res = await fetch('results/deleteResult', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'itemFromJS': itemText
+                'resultIdFromJS': resultId
             })
         })
-    const data = await res.json()
-    console.log(data)
-    location.reload()
-
+        const data = await res.json()
+        console.log(data)
+        location.reload()
     } catch(err) {
         console.log(err)
     }
