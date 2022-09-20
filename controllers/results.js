@@ -2,10 +2,6 @@ const Result = require('../models/Results')
 
 module.exports = {
 
-    // getResults: async (req, res) => {
-    //     res.render('results.ejs')
-    // }
-
     getResults: async (req, res) => {
         try{
             const matchResults = await Result.find()
