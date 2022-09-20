@@ -23,6 +23,10 @@ const ResultsSchema = new mongoose.Schema({
     },
     scorer: {
         type: String,
+    },
+    userId: {
+        type: String,
+        required: true
     }
 })
 

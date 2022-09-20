@@ -4,11 +4,11 @@ const resultsController = require('../controllers/results')
 const { ensureAuth } = require('../middleware/auth')
 
 
-router.get('/addGame', resultsController.addGame)
+router.get('/addGame', ensureAuth, resultsController.addGame)
 
 router.post('/createResult', resultsController.createResult)
 
-router.get('/getResults', resultsController.getResults)
+router.get('/getResults', ensureAuth, resultsController.getResults)
 
 router.delete('/deleteResult', resultsController.deleteResult)
 
