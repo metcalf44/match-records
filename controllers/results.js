@@ -2,10 +2,14 @@ const Result = require('../models/Results')
 
 module.exports = {
 
+    addGame: (req, res) => {
+        res.render('results.ejs')
+    },
+
     getResults: async (req, res) => {
         try{
             const matchResults = await Result.find()
-            res.render('results.ejs', {matches: matchResults})
+            res.render('home.ejs', {matches: matchResults})
         } catch(err) {
             console.log(err)
         }
@@ -20,5 +24,23 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
-    } 
+    },
+
+    createResult: async (req, res) => {
+        try{
+            await Result.create({
+                date: req.body.date,
+                homeTeam: req.body.homeTeam,
+                homeScore: req.body.homeScore,
+                awayScore: req.body.awayScore,
+                awayTeam: req.body.awayTeam,
+                scorer: req.body.scorer,
+            })
+            console.log('Result has been added')
+            res.redirect('/results/getResults')
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
 }

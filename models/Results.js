@@ -3,8 +3,7 @@ const mongoose = require('mongoose')
 const ResultsSchema = new mongoose.Schema({
     date: {
         type: Date,
-        $setOnInsert: { dateAdded: new Date() },
-        required: true,
+        default: Date.now
     },
     homeTeam: {
         type: String,

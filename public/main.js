@@ -9,7 +9,7 @@ Array.from(deleteBtn).forEach((el) => {
 async function deleteResult() {
     const resultId = this.parentNode.dataset.id
     try{
-        const res = await fetch('results/deleteResult', {
+        const res = await fetch('/results/deleteResult', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
