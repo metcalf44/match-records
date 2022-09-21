@@ -12,4 +12,8 @@ router.get('/getResults', ensureAuth, resultsController.getResults)
 
 router.delete('/deleteResult', resultsController.deleteResult)
 
+router.get('/getPlayers', ensureAuth, resultsController.getPlayers)
+
+router.post('/createPlayer', resultsController.createPlayer)
+
 module.exports = router

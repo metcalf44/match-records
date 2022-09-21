@@ -1,9 +1,38 @@
 const Result = require('../models/Results')
+const Players = require('../models/Players')
 
 module.exports = {
 
     addGame: (req, res) => {
         res.render('results.ejs')
+    },
+
+    getPlayers: async (req, res) => {
+        try {
+            const playerStats = await Players.find()
+            const matches = await Result.find()
+            res.render('players.ejs', {player: playerStats, match: matches})
+        } catch(err) {
+            console.log(err)
+        }
+    },
+
+    createPlayer: async (req, res) => {
+        try {
+            await Players.create({
+                team: req.body.team,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                games: 0,    
+                goals: 0,
+                assists: 0,
+                userId: req.user.id
+            })
+            console.log('Player has been added')
+            res.redirect('/results/getPlayers')
+        } catch(err) {
+            console.log(err)
+        }
     },
 
     getResults: async (req, res) => {
@@ -42,6 +71,6 @@ module.exports = {
         } catch(err) {
             console.log(err)
         }
-    }
+    },
 
 }
