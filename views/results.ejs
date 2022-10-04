@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>Match results</title>
-</head>
-<body>
-    <h1>Wymondly Park</h1>
+<%- include('partials/header') -%>
+
     <a href="/results/getResults">Match results</a>
-    <a href="/results/getPlayers">Players</a>
+    <a href="/players/getPlayers">Players</a>
 
     <h2>Add Result</h2>
     <form action="/results/createResult" method="POST">
@@ -50,6 +41,7 @@
 
         <label for="scorer"></label>
         <input type="text" placeholder="Scorers" name="scorer" id="scorer"><br>
+        <input type="text" placeholder="Assists" name="assist" id="assist"><br>
         <input class="submitBtn" type="submit">
     </form>
 

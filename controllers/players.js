@@ -1,0 +1,29 @@
+const Players = require('../models/Players')
+
+module.exports = {
+    getPlayers: async (req, res) => {
+        try {
+            const playerStats = await Players.find({ userId:req.user.id }).sort({firstName: 'asc'})
+            res.render('players.ejs', {player: playerStats, user: req.user})
+        } catch(err) {
+            console.log(err)
+        }
+    },
+    createPlayer: async (req, res) => {
+        try {
+            await Players.create({
+                team: req.body.team,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                games: 0,    
+                goals: 0,
+                assists: 0,
+                userId: req.user.id
+            })
+            console.log('Player has been added')
+            res.redirect('/players/getPlayers')
+        } catch(err) {
+            console.log(err)
+        }
+    },
+}

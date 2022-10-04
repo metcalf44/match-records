@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header') -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>Players</title>
-</head>
-
-<body>
-    
-    <h1>Players</h1>
     <a href="/results/getResults">Match results</a>
     <a href="/results/addGame">Add results</a>
 
@@ -21,7 +9,7 @@
         <input type="text" placeholder="Last Name" name="lastName">
         <input type="submit" class="submitBtn">
     </form>
-    <h1>Wymondly Park</h1>
+    <h1>Players</h1>
     
     <ul class="team">
         <% player.forEach ( el => { %>
