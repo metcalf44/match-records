@@ -24,6 +24,9 @@ const ResultsSchema = new mongoose.Schema({
     scorer: {
         type: String,
     },
+    assist: {
+        type: String,
+    },
     userId: {
         type: String,
         required: true

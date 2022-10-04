@@ -1,44 +1,20 @@
 const Result = require('../models/Results')
-const Players = require('../models/Players')
+const User = require('../models/User')
 
 module.exports = {
 
-    addGame: (req, res) => {
-        res.render('results.ejs')
-    },
-
-    getPlayers: async (req, res) => {
+    addGame: async (req, res) => {
         try {
-            const playerStats = await Players.find()
-            const matches = await Result.find()
-            res.render('players.ejs', {player: playerStats, match: matches})
+            const user = await User.find()
+            res.render('results.ejs', { user: req.user })
         } catch(err) {
             console.log(err)
         }
     },
-
-    createPlayer: async (req, res) => {
-        try {
-            await Players.create({
-                team: req.body.team,
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                games: 0,    
-                goals: 0,
-                assists: 0,
-                userId: req.user.id
-            })
-            console.log('Player has been added')
-            res.redirect('/results/getPlayers')
-        } catch(err) {
-            console.log(err)
-        }
-    },
-
     getResults: async (req, res) => {
         try{
-            const matchResults = await Result.find({userId:req.user.id}).sort({ date: 1 })
-            res.render('home.ejs', {matches: matchResults, user: req.user})
+            const matchResults = await Result.find({ userId:req.user.id }).sort({ date: 1 })
+            res.render('home.ejs', { matches: matchResults, user: req.user })
         } catch(err) {
             console.log(err)
         }
@@ -47,7 +23,7 @@ module.exports = {
     deleteResult: async (req, res) => {
         console.log(req.body.resultIdFromJSFile)
         try {
-            await Result.findOneAndDelete({_id:req.body.resultIdFromJSFile})
+            await Result.findOneAndDelete({ _id:req.body.resultIdFromJSFile })
             console.log('Deleted result')
             res.json('Deleted result')
         } catch (err) {
@@ -64,7 +40,7 @@ module.exports = {
                 awayScore: req.body.awayScore,
                 awayTeam: req.body.awayTeam,
                 scorer: req.body.scorer,
-                userId: req.user.id
+                userId: req.user.id,
             })
             console.log('Result has been added')
             res.redirect('/results/getResults')

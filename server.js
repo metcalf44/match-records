@@ -10,6 +10,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const resultsRoutes = require('./routes/results')
+const playersRoutes = require('./routes/players')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -42,6 +43,7 @@ app.use(flash())
 
 app.use('/', homeRoutes)
 app.use('/results', resultsRoutes)
+app.use('/players', playersRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`The server is alive and running!`)
