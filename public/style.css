@@ -10,11 +10,13 @@ body {
     padding: 0;
 }
 
-h1 {
+.team-header {
     font-size: 3rem;
     margin-left: .9em;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    text-decoration: none;
+    color:#000;
 }
 
 h2 {
@@ -69,7 +71,7 @@ input .date {
     padding-right: .25em;
 } */
 
-.scorer {
+.scorer, .assist {
     text-align: left;
     margin: 0;
     padding: .25em 0 0 1.5em;
@@ -105,11 +107,6 @@ input .date {
     cursor: pointer;
     border: none;
     background-color: transparent;
-}
-
-.show {
-    font-size: 3rem;
-    visibility: hidden;
 }
 
 th, td {

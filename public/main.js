@@ -3,6 +3,7 @@ const deletePlayerBtn = document.querySelectorAll("#deletePlayer")
 const awayTeam = document.querySelectorAll(".team .away-team")
 
 
+
 Array.from(deleteBtn).forEach((el) => {
     el.addEventListener('click', deleteResult)
 })
@@ -46,7 +47,6 @@ async function deletePlayer() {
         console.log(err)
     }
 }
-
 
 // item text refers to the text clicked on page
 // its then stored in the body as itemFromJS
