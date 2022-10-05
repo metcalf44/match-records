@@ -40,6 +40,7 @@ module.exports = {
                 awayScore: req.body.awayScore,
                 awayTeam: req.body.awayTeam,
                 scorer: req.body.scorer,
+                assist: req.body.assist,
                 userId: req.user.id,
             })
             console.log('Result has been added')

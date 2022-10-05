@@ -28,8 +28,8 @@ const ResultsSchema = new mongoose.Schema({
         type: String,
     },
     userId: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 

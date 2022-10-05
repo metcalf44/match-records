@@ -12,7 +12,7 @@ module.exports = {
     createPlayer: async (req, res) => {
         try {
             await Players.create({
-                team: req.body.team,
+                team: req.user.userName,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 games: 0,    
@@ -26,4 +26,14 @@ module.exports = {
             console.log(err)
         }
     },
+    deletePlayer: async (req, res) => {
+        console.log(req.body.playerIdFromJSFile)
+        try {
+            await Players.findOneAndDelete({_id: req.body.playerIdFromJSFile })
+            console.log('Deleted Player')
+            res.json('Deleted Player')
+        } catch(err) {
+            console.log(err)
+        }
+    } 
 }

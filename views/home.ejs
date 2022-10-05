@@ -6,15 +6,18 @@
     <ul class="match-stats">
         <% matches.forEach (el => { %>
             <span class="date"><%= el.date %></span>
-            <li class="team <%= el.homeTeam === user.userName ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
+            <li class="result <%= el.homeTeam === user.userName ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
                 <span class="home-team"><%= el.homeTeam.replace(/\w/, c => c.toUpperCase()) %></span>
                 <span class="home-score"><%= el.homeScore %></span> - 
                 <span class="away-score"><%= el.awayScore %></span>
                 <span class="away-team"><%= el.awayTeam.replace(/\w/, c => c.toUpperCase()) %></span>
-                <span class="fa-regular fa-futbol"></span>
-                <span class="fa-solid fa-xmark"></span>
+                <span class="fa-regular fa-futbol" id="gameInfo"></span>
+                <span class="fa-solid fa-xmark" id="deleteResult"></span>
                 <br>
-                <p class="scorer"><%= el.scorer %></p>
+                <div id="show-more" class="show-more">
+                    <p class="scorer"><%= el.scorer %></p>
+                    <p class="assist"><%= el.assist %></p>
+                </div>
             </li>
         <% }) %>
 

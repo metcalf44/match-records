@@ -1,28 +1,37 @@
 <%- include('partials/header') -%>
 
+    <a href="/logout">Logout</a>
     <a href="/results/getResults">Match results</a>
     <a href="/results/addGame">Add results</a>
 
-    <form action="/results/createPlayer" method="POST">
-        <input type="text" placeholder="Team Name" name="team">
+    <form action="/players/createPlayer" method="POST">
         <input type="text" placeholder="First Name" name="firstName">
         <input type="text" placeholder="Last Name" name="lastName">
         <input type="submit" class="submitBtn">
     </form>
-    <h1>Players</h1>
-    
-    <ul class="team">
-        <% player.forEach ( el => { %>
-            <li class="players">
-                <span class="player-fName"><%= el.firstName %></span>
-                <span class="player-lName"><%= el.lastName %></span>
-                <span class="player-game"><%= el.games %></span>
-                <span class="player-goals"><%= el.goals %></span>
-                <span class="player-assits"><%= el.assists %></span>
-            </li>
-            <% }) %>
-        </ul>
 
+    <h1>Players</h1> 
+        <table class="team">
+            <tr>
+                <th class="firstName">first name</th>
+                <th>Last name</th>
+                <th>games</th>
+                <th>goals</th>
+                <th>assists</th>
+            </tr>
+        <% player.forEach ( el => { %>
+            <tr data-id="<%= el._id%>">
+                <td><%= el.firstName %></td>
+                <td><%= el.lastName %></td>
+                <td><%= el.games %></td>
+                <td><%= el.goals %></td>
+                <td><%= el.assists %></td>
+                <td class="fa-solid fa-xmark" id="deletePlayer"></td>
+            </tr>
+                    
+        <% }) %>
+        </table>
+        
     <script src='../main.js'></script>
 </body>
 

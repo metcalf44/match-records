@@ -1,5 +1,7 @@
-const deleteBtn = document.querySelectorAll(".fa-xmark")
+const deleteBtn = document.querySelectorAll("#deleteResult")
+const deletePlayerBtn = document.querySelectorAll("#deletePlayer")
 const awayTeam = document.querySelectorAll(".team .away-team")
+
 
 
 Array.from(deleteBtn).forEach((el) => {
@@ -24,6 +26,27 @@ async function deleteResult() {
     }
 }
 
+Array.from(deletePlayerBtn).forEach((el) => {
+    el.addEventListener('click', deletePlayer)
+})
+
+async function deletePlayer() {
+    const playerId = this.parentNode.dataset.id
+    try {
+        const res = await fetch('/players/deletePlayer', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'playerIdFromJSFile': playerId
+            })
+        })
+        const data = await res.json()
+        console.log(data)
+        location.reload()
+    } catch(err) {
+        console.log(err)
+    }
+}
 
 // item text refers to the text clicked on page
 // its then stored in the body as itemFromJS
