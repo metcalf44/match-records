@@ -6,7 +6,7 @@
     <ul class="match-stats">
         <% matches.forEach (el => { %>
             <span class="date"><%= el.date %></span>
-            <li class="team <%= el.homeTeam === user.userName ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
+            <li class="result <%= el.homeTeam === user.userName ? 'homeColor' : 'awayColor' %>" data-id="<%= el._id%>">
                 <span class="home-team"><%= el.homeTeam.replace(/\w/, c => c.toUpperCase()) %></span>
                 <span class="home-score"><%= el.homeScore %></span> - 
                 <span class="away-score"><%= el.awayScore %></span>
