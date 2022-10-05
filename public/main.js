@@ -1,4 +1,5 @@
-const deleteBtn = document.querySelectorAll(".fa-xmark")
+const deleteBtn = document.querySelectorAll("#deleteResult")
+const deletePlayerBtn = document.querySelectorAll("#deletePlayer")
 const awayTeam = document.querySelectorAll(".team .away-team")
 
 
@@ -14,6 +15,28 @@ async function deleteResult() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 'resultIdFromJSFile': resultId
+            })
+        })
+        const data = await res.json()
+        console.log(data)
+        location.reload()
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+Array.from(deletePlayerBtn).forEach((el) => {
+    el.addEventListener('click', deletePlayer)
+})
+
+async function deletePlayer() {
+    const playerId = this.parentNode.dataset.id
+    try {
+        const res = await fetch('/players/deletePlayer', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'playerIdFromJSFile': playerId
             })
         })
         const data = await res.json()

@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const PlayersSchema = new mongoose.Schema({
     team: {
         type: String,
-        required: true,
+        ref: 'User',
     },
     firstName: {
         type: String,
@@ -23,8 +23,8 @@ const PlayersSchema = new mongoose.Schema({
         type: Number,
     },
     userId: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 })
 

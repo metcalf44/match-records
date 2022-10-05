@@ -5,6 +5,8 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/getPlayers', ensureAuth, playerController.getPlayers)
 
-router.post('/createPlayer, playerController.createPlayer')
+router.post('/createPlayer', playerController.createPlayer)
+
+router.delete('/deletePlayer', playerController.deletePlayer)
 
 module.exports = router
