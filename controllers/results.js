@@ -7,22 +7,21 @@ module.exports = {
     addGame: async (req, res) => {
         try {
             const user = await User.find()
-            res.render('results.ejs', { user: req.user })
+            const players = await Players.find({ userId:req.user.id})
+            res.render('results.ejs', { user: req.user, players: players })
         } catch(err) {
             console.log(err)
         }
     },
     getResults: async (req, res) => {
         try{
-            const matchResults = await Result.find({ userId:req.user.id }).sort({ date: 1 })
-            const teamMember = await Players.find()
-            res.render('home.ejs', { matches: matchResults, user: req.user, dropdownVals: matchResults })
+            const matchResults = await Result.find({ userId:req.user.id }).sort({ date: -1 })
+            const players = await Players.find({ userId:req.user.id })
+            res.render('home.ejs', { matches: matchResults, user: req.user, players: players })
         } catch(err) {
             console.log(err)
         }
     },
-
-  
 
     deleteResult: async (req, res) => {
         console.log(req.body.resultIdFromJSFile)

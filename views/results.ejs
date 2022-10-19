@@ -45,12 +45,26 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
             </select><br>
-            <label for="scorer"></label>
+
+        <label for="scorer"></label>
+        <select name="scorer" id="">
+            <option value="">No scorer</option>                
+            <% for (const i in players) { %>
+                <option value="<%= players[i].firstName %>"><%= players[i].firstName %> <%= players[i].lastName %></option> 
+            <% } %>
+        </select><br>
         <input type="text" placeholder="Scorers" name="scorer" id="scorer"><br>
+
         <label for="assist"></label>
+        <select name="assist" id="">
+            <option value="">No scorer</option>
+            <% for (const i in players) { %>
+                <option value="<%= players[i].firstName %>"><%= players[i].firstName %> <%= players[i].lastName %></option> 
+                <% } %>
+        </select><br>
         <input type="text" placeholder="Assists" name="assist" id="assist"><br>
-        <input class="submitBtn" type="submit">
         
+        <input class="submitBtn" type="submit">
     </form>
 
     <script src="../main.js"></script>

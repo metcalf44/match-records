@@ -22,10 +22,10 @@ const ResultsSchema = new mongoose.Schema({
         required: true,
     },
     scorer: {
-        type: String,
+        type: Array,
     },
     assist: {
-        type: String,
+        type: Array,
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
