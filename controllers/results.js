@@ -20,6 +20,8 @@ module.exports = {
         }
     },
 
+  
+
     deleteResult: async (req, res) => {
         console.log(req.body.resultIdFromJSFile)
         try {

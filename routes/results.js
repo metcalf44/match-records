@@ -12,4 +12,5 @@ router.get('/getResults', ensureAuth, resultsController.getResults)
 
 router.delete('/deleteResult', resultsController.deleteResult)
 
+
 module.exports = router
