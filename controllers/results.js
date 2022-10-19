@@ -1,3 +1,4 @@
+const Players = require('../models/Players')
 const Result = require('../models/Results')
 const User = require('../models/User')
 
@@ -14,7 +15,8 @@ module.exports = {
     getResults: async (req, res) => {
         try{
             const matchResults = await Result.find({ userId:req.user.id }).sort({ date: 1 })
-            res.render('home.ejs', { matches: matchResults, user: req.user })
+            const teamMember = await Players.find()
+            res.render('home.ejs', { matches: matchResults, user: req.user, dropdownVals: matchResults })
         } catch(err) {
             console.log(err)
         }

@@ -30,7 +30,12 @@
             </tr>       
         <% }) %>
         
-        
+        <select name="playerScored" id="">
+            <% for (const i in player) { %>
+                <option value="<%= player[i].id %>"><%= player[i].firstName %> <%= player[i].lastName %></option> 
+            <% } %>
+        </select>
+        <script src="../main.js"></script>
     <script src='../main.js'></script>
 </body>
 
