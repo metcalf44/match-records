@@ -2,7 +2,28 @@ const deleteBtn = document.querySelectorAll("#deleteResult")
 const deletePlayerBtn = document.querySelectorAll("#deletePlayer")
 const awayTeam = document.querySelectorAll(".team .away-team")
 
+// adding scorer ids
+const scorerBtn = document.querySelector("#scorer-btn")
+const scorerDropdown = document.querySelector("#scorer-dropdown")
+let scorerInput = document.querySelector("#scorer-input")
 
+// adding assist ids
+let assistBtn = document.querySelector("#assist-btn")
+let assistDropdown = document.querySelector("#assist-dropdown")
+let assistInput = document.querySelector("#assist-input")
+
+// button to add players from the database to result page(scorers)
+// had to use ?. (chaining) as it reads btn as null 
+    scorerBtn?.addEventListener("click", () => {
+           let addScorer = scorerInput.value += scorerDropdown.value + ", "
+           return addScorer
+    })
+
+// button to add players from the database to result page(assists)
+    assistBtn?.addEventListener("click", () => {
+        let addAssist = assistInput.value += assistDropdown.value + ", "
+        return addAssist
+    })
 
 Array.from(deleteBtn).forEach((el) => {
     el.addEventListener('click', deleteResult)

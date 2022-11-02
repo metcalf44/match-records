@@ -46,26 +46,37 @@
                 <option value="12">12</option>
             </select><br>
 
-        <label for="scorer"></label>
-        <select name="scorer" id="">
-            <option value="">No scorer</option>                
-            <% for (const i in players) { %>
-                <option value="<%= players[i].firstName %>"><%= players[i].firstName %> <%= players[i].lastName %></option> 
-            <% } %>
-        </select><br>
-        <input type="text" placeholder="Scorers" name="scorer" id="scorer"><br>
+            <label for="scorer"></label>
+            <select name="" id="scorer-dropdown">
+                <option id="" value="">No scorer</option>                
+                <% for (const i in players) { %>
+                    <option value="<%= players[i].firstName %>">
+                        <%= players[i].firstName %> 
+                        <%= players[i].lastName %>
+                    </option> 
+                    <% } %>
+            </select>
 
-        <label for="assist"></label>
-        <select name="assist" id="">
-            <option value="">No scorer</option>
-            <% for (const i in players) { %>
-                <option value="<%= players[i].firstName %>"><%= players[i].firstName %> <%= players[i].lastName %></option> 
+                <button type="button" id="scorer-btn">Add</button><br>
+                <input type="text" placeholder="Scorers" name="scorer" id="scorer-input"><br>
+            
+            <label for="assist"></label>
+            <select name="" id="assist-dropdown">
+                <option value="">No Assists</option>
+                <% for (const i in players) { %>
+                    <option name="" id="" value="<%= players[i].firstName %>">
+                        <%= players[i].firstName %> 
+                        <%= players[i].lastName %>
+                    </option> 
                 <% } %>
-        </select><br>
-        <input type="text" placeholder="Assists" name="assist" id="assist"><br>
-        
-        <input class="submitBtn" type="submit">
-    </form>
+            </select>
+            
+                <button type="button" id="assist-btn">Add</button><br>
+                <input type="text" placeholder="Assists" name="assist" id="assist-input"><br>
+                
+                    
+                    <input class="submitBtn" type="submit">
+                </form>
 
     <script src="../main.js"></script>
 
