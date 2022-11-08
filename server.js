@@ -46,5 +46,5 @@ app.use('/results', resultsRoutes)
 app.use('/players', playersRoutes)
 
 app.listen(process.env.PORT, () => {
-    console.log(`The server is alive and running!`)
+    console.log(`The server on: ${process.env.PORT}, is alive and running!`)
 })

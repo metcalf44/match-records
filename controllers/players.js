@@ -1,4 +1,6 @@
 const Players = require('../models/Players')
+const User = require('../models/User')
+
 
 module.exports = {
     getPlayers: async (req, res) => {
@@ -36,4 +38,12 @@ module.exports = {
             console.log(err)
         }
     }, 
+    gameTime: async (req, res) => {
+        try {
+            const user = await User.find()
+            res.render('gameTime.ejs', { user: req.user })
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
